@@ -12,7 +12,6 @@
     "build": "npx webpack --config node_modules/nullstack/webpack.config.js --mode=production"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "react-icons": "^4.2.0"
+    "axios": "^0.21.1"
   }
 }
