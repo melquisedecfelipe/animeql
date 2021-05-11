@@ -8,9 +8,7 @@ export default function Card({ anime }) {
       </aside>
 
       <section>
-        <small>
-          Publicado em: {anime.startDate.year}
-        </small>
+        <small>Published: {anime.startDate.year}</small>
 
         <h3 title={anime.title.english}>{anime.title.english}</h3>
         <p title={anime.description}>{anime.description}</p>
