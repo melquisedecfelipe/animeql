@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Card from '../../components/Card';
 import Loading from '../../components/Loading';
-import Top from '../../components/Top';
+import Scroll from '../../components/Scroll';
 
 import query from '../../utils/graphQuery'
 
@@ -67,7 +67,7 @@ class Home extends Nullstack {
           <p>This APP use <a href="https://nullstack.app/" target="_blank" rel="noopener noreferrer">nullstack </a> to request <a href="https://anilist.co/" target="_blank" rel="noopener noreferrer">anilist</a>.</p>
         </section>
 
-        <Top />
+        <Scroll />
 
         <CardList />
       </main>
