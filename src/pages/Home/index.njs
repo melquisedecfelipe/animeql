@@ -20,7 +20,7 @@ class Home extends Nullstack {
     page.title = 'AnimeQL';
   }
 
-  getData = async () => {
+  async initiate() {
     this.loading = true;
 
     const { data } = await axios.post('https://graphql.anilist.co/', {
@@ -34,26 +34,23 @@ class Home extends Nullstack {
 
     this.currentPage = pageInfo.currentPage + 1;
     this.hasNextPage = pageInfo.hasNextPage;
-    this.list = [...this.list, ...media];
+    this.list.push(...media);
     this.loading = false;
   }
 
-  async initiate() {
-    await this.getData();
-  }
-
   renderCardList() {
+    if(!this.hasNextPage) return;
     return (
       <>
         <section class="home__content">
           {this.list.map(anime => (
-            <Card key={anime.id} anime={anime} />
+            <Card anime={anime} />
           ))}
         </section>
 
         {!this.loading ? (
           <section class="home__action">
-            <button onclick={() => this.getData()}>Mostrar mais</button>
+            <button onclick={this.initiate}>Mostrar mais</button>
           </section>
         ) : (
           <Loading />
@@ -72,11 +69,7 @@ class Home extends Nullstack {
 
         <Top />
 
-        {
-          this.hasNextPage && (
-            <CardList />
-          )
-        }
+        <CardList />
       </main>
     )
   }
